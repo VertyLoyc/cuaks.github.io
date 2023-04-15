@@ -36,14 +36,36 @@ h1 {
 }
 
 .ritwan-image {
+  position: relative;
   width: 300px;
   height: 300px;
-  background-image: radial-gradient(circle, #FF0000 0%, #FFA500 16.67%, #FFFF00 33.33%, #008000 50%, #0000FF 66.67%, #4B0082 83.33%, #EE82EE 100%);
   border-radius: 50%;
+  overflow: hidden;
   display: inline-block;
-  background-image: url('ritwan.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+}
+
+.ritwan-image::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: radial-gradient(circle, #FF0000 0%, #FFA500 16.67%, #FFFF00 33.33%, #008000 50%, #0000FF 66.67%, #4B0082 83.33%, #EE82EE 100%);
+  animation: rotate 3s linear infinite;
+}
+
+.center-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
